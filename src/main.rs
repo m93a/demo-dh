@@ -7,6 +7,7 @@ use salvo::server::ServerHandle;
 use tokio::signal;
 use tracing::info;
 mod app_error;
+mod utils;
 #[allow(dead_code)]
 mod app_response;
 mod config;

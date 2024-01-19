@@ -459,6 +459,7 @@ dependencies = [
  "clia-tracing-config",
  "jsonwebtoken 8.3.0",
  "once_cell",
+ "rand",
  "rust-embed",
  "salvo",
  "serde",
