@@ -1,19 +1,21 @@
-use salvo::oapi::endpoint;
 use crate::app_response::AppResult;
-use crate::utils::dh;
+use crate::utils::dh::generate_random_prime;
+use salvo::oapi::endpoint;
 
 #[endpoint]
-pub async fn hello() -> AppResult<&'static str> {
-    
-    Ok("Hello World from salvo")
+pub async fn hello() -> AppResult<String> {
+    Ok(format!(
+        "Hello World from salvo, here's a prime: {}",
+        generate_random_prime()
+    ))
 }
 
 #[allow(unused_imports)]
 mod tests {
-    use salvo::test::{ResponseExt, TestClient};
-    use salvo::Service;
     use crate::config::CFG;
     use crate::get_address;
+    use salvo::test::{ResponseExt, TestClient};
+    use salvo::Service;
 
     #[tokio::test]
     async fn test_hello_world() {
